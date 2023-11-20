@@ -1,0 +1,20 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ title }}</title>
+  {% load django_bootstrap5 %}
+  {% bootstrap_css %}
+  {% bootstrap_javascript %}
+    <link type="text/css" href="{% static 'manager/css/headers.css' %}" rel="stylesheet"/>
+</head>
+<body>
+{% include "manager/components/header.html" %}
+  {% block content %}
+
+  {% endblock %}
+
+{% include "manager/components/footer.html" %}
+</body>
+</html>
