@@ -9,16 +9,17 @@
 
     <a class="navbar-brand fs-4 me-5" href="/" previewlistener="true">{{ logo }}</a>
         <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-          <li><a href="#" class="nav-link px-2 text-secondary">{% trans "Users" %}</a></li>
+          <li><a href="{% url 'users:users_index' %}" class="nav-link px-2 text-secondary">{% trans "Users" %}</a></li>
           <li><a href="#" class="nav-link px-2 text-white">{% trans "Statuses" %}</a></li>
           <li><a href="#" class="nav-link px-2 text-white">{% trans "Tags" %}</a></li>
           <li><a href="#" class="nav-link px-2 text-white">{% trans "Tasks" %}</a></li>
-<!--          <li><a href="#" class="nav-link px-2 text-white">Выход</a></li>-->
+{% if user.is_authenticated %}
+        <li ><a href="{% url 'users:logout' %}" class="nav-link px-2 text-white">Выйти</a></li>
         </ul>
-
+{% endif %}
         <div class="text-end">
-          <button type="button" class="btn btn-outline-light me-2">{% trans "login" %}</button>
-          <button type="button" class="btn btn-warning">{% trans "sigh up" %}</button>
+          <a href="{% url 'users:login' %}" class="btn btn-outline-light me-2">{% trans "login" %}</a>
+          <a href="{% url 'users:register' %}" class="btn btn-warning">{% trans "sigh up" %}</a>
         </div>
       </div>
     </div>
