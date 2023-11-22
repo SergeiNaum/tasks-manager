@@ -2,25 +2,39 @@
 
 <header class="p-3 text-bg-dark">
     <div class="container">
-      <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-        <a href="/" class="d-flex  mb-2 mb-lg-0 text-white text-decoration-none" previewlistener="true">
-          <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"></use></svg>
-        </a>
+        <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+            <a href="/" class="d-flex  mb-2 mb-lg-0 text-white text-decoration-none" previewlistener="true">
+                <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap">
+                    <use xlink:href="#bootstrap"></use>
+                </svg>
+            </a>
 
-    <a class="navbar-brand fs-4 me-5" href="/" previewlistener="true">{{ logo }}</a>
-        <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-          <li><a href="{% url 'users:users_index' %}" class="nav-link px-2 text-secondary">{% trans "Users" %}</a></li>
-          <li><a href="#" class="nav-link px-2 text-white">{% trans "Statuses" %}</a></li>
-          <li><a href="#" class="nav-link px-2 text-white">{% trans "Tags" %}</a></li>
-          <li><a href="#" class="nav-link px-2 text-white">{% trans "Tasks" %}</a></li>
-{% if user.is_authenticated %}
-        <li ><a href="{% url 'users:logout' %}" class="nav-link px-2 text-white">Выйти</a></li>
-        </ul>
-{% endif %}
-        <div class="text-end">
-          <a href="{% url 'users:login' %}" class="btn btn-outline-light me-2">{% trans "login" %}</a>
-          <a href="{% url 'users:register' %}" class="btn btn-warning">{% trans "sigh up" %}</a>
+            <a class="navbar-brand fs-4 me-5" href="/" previewlistener="true">{{ logo }}</a>
+            <ul class=" nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+                <li>
+                    <a href="{% url 'users:users_index' %}"
+                       class="nav-link px-2 {% if current_page == 'users_index' %}text-secondary {% else %} text-white {% endif %}">
+                        {% trans "Users" %}</a>
+                </li>
+                <li><a href="#" class="nav-link px-2 text-white">{% trans "Statuses" %}</a></li>
+                <li><a href="#" class="nav-link px-2 text-white">{% trans "Tags" %}</a></li>
+                <li><a href="#" class="nav-link px-2 text-white">{% trans "Tasks" %}</a></li>
+
+                </ul>
+
+                {% if not user.is_authenticated %}
+                <div class="text-end">
+                    <a href="{% url 'users:login' %}" class="btn btn-outline-light me-2">{% trans "login" %}</a>
+                    <a href="{% url 'users:register' %}" class="btn btn-warning">{% trans "sigh up" %}</a>
+                </div>
+                {% else %}
+                <div class="text-end text-white fw-bold">
+                    Привет, {{ user.username }} |
+                </div>
+                <ul class=" nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+                    <li><a href="{% url 'users:logout' %}" class="nav-link px-2 text-white">Выйти</a></li>
+                </ul>
+                {% endif %}
         </div>
-      </div>
     </div>
-  </header>
+</header>
