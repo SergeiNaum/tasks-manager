@@ -6,7 +6,7 @@
 {% block content %}
     <h1 class="my-4">{% trans 'statuses' %}</h1>
 
-    <a class="nav-link" href="{% url 'statuses:status_create' %}">{% trans 'Create status' %}</a>
+    <a class="btn btn-primary" href="{% url 'statuses:status_create' %}">{% trans 'Create status' %}</a>
 
     <table class="table table-striped table-hover">
         <thead class="thead-dark">
@@ -35,4 +35,4 @@
             {% endif %}
         </tbody>
     </table>
-{% endblock content %}
+{% endblock %}
