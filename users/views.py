@@ -1,13 +1,17 @@
 from django.urls import reverse_lazy
 from django.urls import reverse
+from django.shortcuts import redirect
+from django.contrib import messages
 from django.utils.translation import gettext as _
 from django.views.generic import ListView, FormView, TemplateView, DetailView, CreateView, UpdateView
-from django.contrib.auth.views import LoginView
+from django.contrib.auth.views import LoginView, LogoutView
+from django.contrib.messages.views import SuccessMessageMixin
 from django.views.generic.edit import DeleteView
 from django.contrib.auth import update_session_auth_hash
-from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
 from django.http import HttpResponseRedirect
 
+from task_manager.mixins import UserPermissionMixin, AuthRequiredMixin, DeleteProtectionMixin
 from users.forms import LoginUserForm, RegisterUserForm, UserEditForm
 from users.models import User
 
@@ -25,23 +29,37 @@ class UsersIndexView(TemplateView):
         return context
 
 
-class LoginUser(LoginView):
+class LoginUser(SuccessMessageMixin, LoginView):
     form_class = LoginUserForm
     template_name = 'users/login.html'
+    next_page = reverse_lazy('index')
+    success_message = _('You are logged in')
     extra_context = {'title': _('Task Manager'),
                      'logo': _('Task Manager'),
+                     'button_text': _('Enter'),
                      'current_page': 'login'
                      }
 
 
-class RegisterUser(CreateView):
+class LogoutUser(LogoutView):
+    next_page = reverse_lazy('index')
+    success_message = _('You are logged out')
+
+    def dispatch(self, request, *args, **kwargs):
+        messages.info(request, _('You are logged out'))
+        return super().dispatch(request, *args, **kwargs)
+
+
+class RegisterUser(SuccessMessageMixin, CreateView):
     form_class = RegisterUserForm
     template_name = 'users/register.html'
+    success_message = _('User is successfully registered')
+    success_url = reverse_lazy('users:register_done')
     extra_context = {'title': _('Task Manager'),
                      'logo': _('Task Manager'),
+                     'button_text': _('Register'),
                      'current_page': 'register'
                      }
-    success_url = reverse_lazy('users:register_done')
 
 
 class RegisterDone(TemplateView):
@@ -55,17 +73,23 @@ class RegisterDone(TemplateView):
         return context
 
 
-class UserEditView(LoginRequiredMixin, UpdateView):
+class UserEditView(UserPermissionMixin, AuthRequiredMixin, SuccessMessageMixin, UpdateView):
     model = User
     form_class = UserEditForm
     template_name = 'users/update_user_form.html'
+    success_message = _('User is successfully updated')
+    permission_message = _('You have no rights to change another user.')
+    permission_url = reverse_lazy('users:users_index')
+    # permission_required = 'users.add_user'
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['logo'] = _('Task Manager')
         context['title'] = _('Task Manager')
+        context['button_text'] = _('Edit')
         context['current_page'] = 'users_index'
         return context
+
     def get_object(self):
         return self.request.user
 
@@ -83,11 +107,16 @@ class UserEditView(LoginRequiredMixin, UpdateView):
         return HttpResponseRedirect(self.get_success_url())
 
 
-class UserDeleteView(DeleteView):
+class UserDeleteView(AuthRequiredMixin, UserPermissionMixin, DeleteProtectionMixin, SuccessMessageMixin, DeleteView):
     model = User
     context_object_name = 'user'
-    success_url = reverse_lazy('users:users_index')
     template_name = 'users/delete_user.html'
+    success_url = reverse_lazy('users:users_index')
+    success_message = _('User is successfully deleted')
+    permission_message = _('You have no rights to change another user.')
+    permission_url = reverse_lazy('users:users_index')
+    protected_message = _('Unable to delete a user because he is being used')
+    protected_url = reverse_lazy('users:users_index')
 
     def get_object(self, queryset=None):
         return self.get_queryset().get(pk=self.kwargs['pk'])
@@ -96,7 +125,7 @@ class UserDeleteView(DeleteView):
         context = super().get_context_data(**kwargs)
         context['logo'] = _('Task Manager')
         context['title'] = _('Task Manager')
+        context['button_text'] = _('Yes, delete')
         context['current_page'] = 'users_index'
-        # context['fullname'] = f'{User.first_name} {User.last_name}'
         return context
 

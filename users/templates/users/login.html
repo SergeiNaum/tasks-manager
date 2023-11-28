@@ -1,8 +1,10 @@
 {% extends "base.html" %}
+{% load i18n %}
+{% load django_bootstrap5 %}
+
 {% block content %}
 
-<div class="container wrapper flex-grow-1">
-    <h1 class="my-4">Вход</h1>
+    <h1 class="my-4">{% trans 'Enter' %}</h1>
 
     <form method="post">
         {% csrf_token %}
@@ -16,8 +18,9 @@
         <div class="form-error">{{ f.errors }}</div>
 
         {% endfor %}
-        <button class="btn btn-primary" type="submit">Войти</button>
+        {% bootstrap_button button_text button_type="submit" button_class="btn btn-primary" %}
+<!--        <button class="btn btn-primary" type="submit">Войти</button>-->
 
     </form>
-</div>
+
 {% endblock %}

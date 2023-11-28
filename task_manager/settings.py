@@ -41,6 +41,7 @@ INSTALLED_APPS = [
 
     'manager.apps.ManagerConfig',
     'users.apps.UsersConfig',
+    'statuses.apps.StatusesConfig',
 
     'django_bootstrap5'
 

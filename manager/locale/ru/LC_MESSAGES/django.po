@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-11-20 19:02+0000\n"
+"POT-Creation-Date: 2023-11-28 15:27+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,30 +20,129 @@ msgstr ""
 "n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || "
 "(n%100>=11 && n%100<=14)? 2 : 3);\n"
 
-#: templates/manager/components/header.html:12
+#: 1.py:21 views.py:56
+msgid "User is successfully registered"
+msgstr "Пользователь успешно зарегестрирован"
+
+#: 1.py:23
+msgid "Create user"
+msgstr "Создать пользователя"
+
+#: 1.py:24 views.py:60
+msgid "Register"
+msgstr "Регистрация"
+
+#: 1.py:40 views.py:80
+msgid "User is successfully updated"
+msgstr "Пользователь успешно обновлён"
+
+#: 1.py:41 1.py:62 views.py:81 views.py:116
+msgid "You have no rights to change another user."
+msgstr "Не достаточно прав для изменения другого пользователя"
+
+#: 1.py:44
+msgid "Update user"
+msgstr "Изменить данные пользователя"
+
+#: 1.py:45 templates/users/1.html:31 templates/users/all_users.html:28
+msgid "Update"
+msgstr "Обновить"
+
+#: 1.py:61 views.py:115
+msgid "User is successfully deleted"
+msgstr "Пользователь успешно удалён"
+
+#: 1.py:64 views.py:118
+msgid "Unable to delete a user because he is being used"
+msgstr "Невозможно удалить пользователя, так как он используется"
+
+#: 1.py:67 templates/users/delete_user.html:6
+msgid "Delete user"
+msgstr "Удалить пользователя"
+
+#: 1.py:68 views.py:128
+msgid "Yes, delete"
+msgstr "Да, удалить"
+
+#: forms.py:9 forms.py:10 forms.py:20 forms.py:22 forms.py:52 forms.py:54
+msgid "username"
+msgstr "имя пользователя"
+
+#: forms.py:11 forms.py:12 forms.py:24 forms.py:26 forms.py:56 forms.py:58
+msgid "Password"
+msgstr "пароль"
+
+#: forms.py:28 forms.py:30 forms.py:60 forms.py:62
+msgid "Password2"
+msgstr "пароль2"
+
+#: forms.py:37 forms.py:42 forms.py:70 forms.py:76
+msgid "First name"
+msgstr "Имя"
+
+#: forms.py:38 forms.py:45 forms.py:71 forms.py:79
+msgid "Last name"
+msgstr "Фамилия"
+
+#: templates/users/1.html:6 views.py:26 views.py:27 views.py:37 views.py:38
+#: views.py:58 views.py:59 views.py:70 views.py:71 views.py:87 views.py:88
+#: views.py:126 views.py:127
+msgid "Task Manager"
+msgstr "Менеджер задач"
+
+#: templates/users/all_users.html:14
+#, fuzzy
+#| msgid "Users"
+msgid "Username"
+msgstr "Пользователи"
+
+#: templates/users/1.html:16 templates/users/all_users.html:15
+msgid "Full name"
+msgstr "Полное имя"
+
+#: templates/users/all_users.html:16
+msgid "Creation date"
+msgstr "Дата создания"
+
+#: templates/users/all_users.html:30
+msgid "Delete"
+msgstr "Удалить"
+
+#: templates/users/all_users.html:8
 msgid "Users"
 msgstr "Пользователи"
 
-#: templates/manager/components/header.html:13
+#: templates/users/delete_user.html:9
+msgid "Are you sure you want to delete"
+msgstr "Вы действительно желаете удалить"
+
+#: templates/users/login.html:7 views.py:39
+msgid "Enter"
+msgstr "Вход"
+
+#: views.py:36
+msgid "You are logged in"
+msgstr "Вы залогинены"
+
+#: views.py:46 views.py:49
+msgid "You are logged out"
+msgstr "Вы вышли"
+
+#: views.py:89
+msgid "Edit"
+msgstr "Изменить"
+
 msgid "Statuses"
 msgstr "Статусы"
 
-#: templates/manager/components/header.html:14
 msgid "Tags"
 msgstr "Метки"
 
-#: templates/manager/components/header.html:15
 msgid "Tasks"
 msgstr "Задачи"
 
-#: templates/manager/components/header.html:20
 msgid "login"
 msgstr "Вход"
 
-#: templates/manager/components/header.html:21
 msgid "sigh up"
 msgstr "Регистрация"
-
-#: views.py:13 views.py:14
-msgid "Task Manager"
-msgstr "Менеджер задач"

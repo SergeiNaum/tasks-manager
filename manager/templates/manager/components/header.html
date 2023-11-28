@@ -16,10 +16,11 @@
                        class="nav-link px-2 {% if current_page == 'users_index' %}text-secondary {% else %} text-white {% endif %}">
                         {% trans "Users" %}</a>
                 </li>
-                <li><a href="#" class="nav-link px-2 text-white">{% trans "Statuses" %}</a></li>
+                {% if user.is_authenticated %}
+                <li><a href="{% url 'statuses:statuses' %}" class="nav-link px-2 text-white">{% trans "Statuses" %}</a></li>
                 <li><a href="#" class="nav-link px-2 text-white">{% trans "Tags" %}</a></li>
                 <li><a href="#" class="nav-link px-2 text-white">{% trans "Tasks" %}</a></li>
-
+                {% endif %}
                 </ul>
 
                 {% if not user.is_authenticated %}

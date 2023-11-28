@@ -1,21 +1,32 @@
 {% load static %}
+{% load i18n %}
+{% get_current_language as LANGUAGE_CODE %}
+{% load django_bootstrap5 %}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ LANGUAGE_CODE }}">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ title }}</title>
-  {% load django_bootstrap5 %}
+    <link rel="icon" type="image/png" href="https://img.icons8.com/fluency/512/microsoft-todo-2019.png" />
+
   {% bootstrap_css %}
-  {% bootstrap_javascript %}
+
     <link type="text/css" href="{% static 'manager/css/headers.css' %}" rel="stylesheet"/>
     <link type="text/css" href="{% static 'manager/css/style.css' %}" rel="stylesheet"/>
 </head>
 <body>
 {% include "manager/components/header.html" %}
+
+<main class="container wrapper flex-grow-1">
+  {% bootstrap_messages %}
   {% block content %}
 
   {% endblock %}
+</main>
 
 {% include "manager/components/footer.html" %}
+{% bootstrap_javascript %}
 </body>
 </html>
