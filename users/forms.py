@@ -2,8 +2,7 @@ from django.contrib.auth.forms import AuthenticationForm, UserCreationForm, Pass
 from django.utils.translation import gettext as _
 from django import forms
 
-from users.models import User
-
+from users import models
 
 class LoginUserForm(AuthenticationForm):
     username = forms.CharField(label=_('username'), widget=forms.TextInput(
@@ -12,7 +11,7 @@ class LoginUserForm(AuthenticationForm):
         attrs={'class': 'form-input form-control', 'placeholder': _('Password')}))
 
     class Meta:
-        model = User
+        model = models.User
         fields = ['username', 'password']
 
 
@@ -31,7 +30,7 @@ class RegisterUserForm(UserCreationForm):
         }))
 
     class Meta:
-        model = User
+        model = models.User
         fields = ['first_name', 'last_name', 'username', 'password1', 'password2']
         labels = {
             'first_name': _('First name'),
@@ -63,7 +62,7 @@ class UserEditForm(forms.ModelForm):
         }))
 
     class Meta:
-        model = User
+        model = models.User
         fields = ['first_name', 'last_name', 'username', 'password1', 'password2']
 
         labels = {

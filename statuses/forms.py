@@ -1,7 +1,7 @@
 from django import forms
 from django.utils.translation import gettext as _
 
-from .models import Status
+from statuses import models
 
 
 class StatusForm(forms.ModelForm):
@@ -13,5 +13,5 @@ class StatusForm(forms.ModelForm):
         }))
 
     class Meta:
-        model = Status
+        model = models.Status
         fields = ['name',]

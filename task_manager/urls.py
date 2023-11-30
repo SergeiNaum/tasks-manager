@@ -23,4 +23,5 @@ urlpatterns = [
     path('', include('manager.urls')),
     path('users/', include('users.urls', namespace="users")),
     path('statuses/', include('statuses.urls', namespace="statuses")),
+    path('tasks/', include('tasks.urls', namespace="tasks")),
 ]

@@ -42,8 +42,10 @@ INSTALLED_APPS = [
     'manager.apps.ManagerConfig',
     'users.apps.UsersConfig',
     'statuses.apps.StatusesConfig',
+    'tasks.apps.TasksConfig',
 
-    'django_bootstrap5'
+    'django_bootstrap5',
+    'django_filters',
 
 ]
 

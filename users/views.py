@@ -76,11 +76,10 @@ class RegisterDone(TemplateView):
 class UserEditView(UserPermissionMixin, AuthRequiredMixin, SuccessMessageMixin, UpdateView):
     model = User
     form_class = UserEditForm
-    template_name = 'users/update_user_form.html'
+    template_name = 'users/edit_user_form.html'
     success_message = _('User is successfully updated')
     permission_message = _('You have no rights to change another user.')
     permission_url = reverse_lazy('users:users_index')
-    # permission_required = 'users.add_user'
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
