@@ -1,12 +1,13 @@
 {% extends "base.html" %}
+
 {% load django_bootstrap5 %}
 {% load i18n %}
 
 
 {% block content %}
-    <h1 class="my-4">{% trans 'statuses' %}</h1>
+    <h1 class="my-4">{{ title }}</h1>
 
-    <a class="btn btn-primary mb-3" href="{% url 'statuses:status_create' %}">{% trans 'Create status' %}</a>
+    <a class="btn btn-primary mb-3" href="{% url 'labels:label_create' %}">{% trans 'Create label' %}</a>
 
     <table class="table table-striped table-hover">
         <thead class="thead-dark">
@@ -19,20 +20,20 @@
         </thead>
 
         <tbody>
-            {% if statuses %}
-                {% for status in statuses %}
+            {% if labels %}
+                {% for label in labels %}
                     <tr>
-                        <td>{{ status.id }}</td>
-                        <td>{{ status.name }}</td>
-                        <td>{{ status.created_at }}</td>
+                        <td>{{ label.id }}</td>
+                        <td>{{ label.name }}</td>
+                        <td>{{ label.created_at }}</td>
                         <td>
-                          <a href="{% url 'statuses:status_update' status.id %}">{% trans 'Update' %}</a>
+                          <a href="{% url 'labels:label_update' label.id %}">{% trans 'Update' %}</a>
                           <br>
-                          <a href="{% url 'statuses:status_delete' status.id %}">{% trans 'Delete' %}</a>
+                          <a href="{% url 'labels:label_delete' label.id %}">{% trans 'Delete' %}</a>
                         </td>
                     </tr>
                 {% endfor %}
             {% endif %}
         </tbody>
     </table>
-{% endblock %}
+{% endblock content %}

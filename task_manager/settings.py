@@ -43,6 +43,8 @@ INSTALLED_APPS = [
     'users.apps.UsersConfig',
     'statuses.apps.StatusesConfig',
     'tasks.apps.TasksConfig',
+    'labels.apps.LabelsConfig',
+
 
     'django_bootstrap5',
     'django_filters',
@@ -134,7 +136,7 @@ LANGUAGES = [
 ]
 
 LOCALE_PATHS = [
-  BASE_DIR / 'manager' / 'locale'
+  BASE_DIR / 'locale'
 
 ]
 

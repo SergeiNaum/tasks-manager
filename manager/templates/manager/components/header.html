@@ -19,10 +19,10 @@
                 {% if user.is_authenticated %}
                 <li><a href="{% url 'statuses:all_statuses' %}"
                        class="nav-link px-2 {% if current_page == 'statuses' %}text-secondary {% else %} text-white {% endif %}">{% trans "Statuses" %}</a></li>
-                <li><a href="#"
-                       class="nav-link px-2 {% if current_page == '323' %}text-secondary {% else %} text-white {% endif %}">{% trans "Tags" %}</a></li>
+                <li><a href="{% url 'labels:all_labels' %}"
+                       class="nav-link px-2 {% if current_page == 'labels' %}text-secondary {% else %} text-white {% endif %}">{% trans "Tags" %}</a></li>
                 <li><a href="{% url 'tasks:tasks' %}"
-                       class="nav-link px-2 {% if current_page == '222' %}text-secondary {% else %} text-white {% endif %}">{% trans "Tasks" %}</a></li>
+                       class="nav-link px-2 {% if current_page == 'tasks' %}text-secondary {% else %} text-white {% endif %}">{% trans "Tasks" %}</a></li>
                 {% endif %}
                 </ul>
 

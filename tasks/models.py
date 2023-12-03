@@ -1,6 +1,7 @@
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 
+from labels.models import Label
 from users.models import User
 from statuses.models import Status
 # from labels.models import Label
@@ -22,10 +23,10 @@ class Task(TimestampedModel):
     author = models.ForeignKey(User, on_delete=models.PROTECT, related_name='author', verbose_name=_('Author'))
     status = models.ForeignKey(Status, on_delete=models.PROTECT, related_name='statuses', verbose_name=_('Status'))
     executor = models.ForeignKey(User, on_delete=models.PROTECT, related_name='executor', verbose_name=_('Executor'))
-    # labels = models.ManyToManyField(
-    #     Label, through='TaskLabelRelation', through_fields=('task', 'label'),
-    #     blank=True, related_name='labels', verbose_name=_('Labels')
-    # )
+    labels = models.ManyToManyField(
+        Label, through='TaskLabelRelation', through_fields=('task', 'label'),
+        blank=True, related_name='labels', verbose_name=_('Labels')
+    )
 
     def __str__(self):
         return self.name
@@ -35,8 +36,8 @@ class Task(TimestampedModel):
         verbose_name_plural = _('Tasks')
 
 
-# class TaskLabelRelation(models.Model):
-#     task = models.ForeignKey(Task, on_delete=models.CASCADE)
-#     label = models.ForeignKey(Label, on_delete=models.PROTECT)
+class TaskLabelRelation(models.Model):
+    task = models.ForeignKey(Task, on_delete=models.CASCADE)
+    label = models.ForeignKey(Label, on_delete=models.PROTECT)
 
 
