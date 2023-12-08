@@ -33,10 +33,10 @@
                 </div>
                 {% else %}
                 <div class="text-end text-white fw-bold">
-                    Привет, {{ user.username }} |
+                     {% trans 'Hello' %}, {{ user.username }} |
                 </div>
                 <ul class=" nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-                    <li><a href="{% url 'users:logout' %}" class="nav-link px-2 text-white">Выйти</a></li>
+                    <li><a href="{% url 'users:logout' %}" class="nav-link px-2 text-white">{% trans ' logout' %}</a></li>
                 </ul>
                 {% endif %}
         </div>

@@ -1,9 +1,5 @@
-from django.shortcuts import render
-from django.http import HttpResponse, HttpRequest
 from django.utils.translation import gettext as _
-from django.views.generic import ListView, FormView, TemplateView, DetailView
-
-from users.models import User
+from django.views.generic import TemplateView
 
 
 # Create your views here.
@@ -17,4 +13,3 @@ class IndexView(TemplateView):
         context['current_page'] = 'index'
         context['user'] = self.request.user
         return context
-

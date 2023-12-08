@@ -1,18 +1,19 @@
 from django.urls import reverse_lazy
 from django.urls import reverse
-from django.shortcuts import redirect
 from django.contrib import messages
 from django.utils.translation import gettext as _
-from django.views.generic import ListView, FormView, TemplateView, DetailView, CreateView, UpdateView
+from django.views.generic import TemplateView, CreateView, UpdateView
 from django.contrib.auth.views import LoginView, LogoutView
 from django.contrib.messages.views import SuccessMessageMixin
 from django.views.generic.edit import DeleteView
 from django.contrib.auth import update_session_auth_hash
-from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
 from django.http import HttpResponseRedirect
 
-from task_manager.mixins import UserPermissionMixin, AuthRequiredMixin, DeleteProtectionMixin
-from users.forms import LoginUserForm, RegisterUserForm, UserEditForm
+from task_manager.mixins import (UserPermissionMixin,
+                                 AuthRequiredMixin,
+                                 DeleteProtectionMixin)
+from users.forms import (LoginUserForm, RegisterUserForm,
+                         UserEditForm)
 from users.models import User
 
 
@@ -70,10 +71,14 @@ class RegisterDone(TemplateView):
         context['logo'] = _('Task Manager')
         context['title'] = _('Task Manager')
         context['current_page'] = 'register'
-        return context
+        return context # noqa E501
 
 
-class UserEditView(UserPermissionMixin, AuthRequiredMixin, SuccessMessageMixin, UpdateView):
+class UserEditView(UserPermissionMixin,
+                   AuthRequiredMixin,
+                   SuccessMessageMixin,
+                   UpdateView):
+
     model = User
     form_class = UserEditForm
     template_name = 'users/edit_user_form.html'
@@ -102,11 +107,16 @@ class UserEditView(UserPermissionMixin, AuthRequiredMixin, SuccessMessageMixin, 
 
     def form_valid(self, form):
         user = form.save()
-        update_session_auth_hash(self.request, user)
-        return HttpResponseRedirect(self.get_success_url())
+        update_session_auth_hash(self.request, user) # noqa E501
+        return HttpResponseRedirect(self.get_success_url()) # noqa E501
 
 
-class UserDeleteView(AuthRequiredMixin, UserPermissionMixin, DeleteProtectionMixin, SuccessMessageMixin, DeleteView):
+class UserDeleteView(AuthRequiredMixin,
+                     UserPermissionMixin,
+                     DeleteProtectionMixin,
+                     SuccessMessageMixin,
+                     DeleteView):
+
     model = User
     context_object_name = 'user'
     template_name = 'users/delete_user.html'
@@ -127,4 +137,3 @@ class UserDeleteView(AuthRequiredMixin, UserPermissionMixin, DeleteProtectionMix
         context['button_text'] = _('Yes, delete')
         context['current_page'] = 'users_index'
         return context
-

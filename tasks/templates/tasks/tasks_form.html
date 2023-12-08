@@ -3,7 +3,7 @@
 {% load i18n %}
 
 {% block content %}
-    <h1 class="my-4">{% trans 'statuses' %}</h1>
+    <h1 class="my-4">{% trans 'tasks' %}</h1>
     <form method="post">
         {% csrf_token %}
         <input type="hidden" name="next" value="{{ next }}"/>

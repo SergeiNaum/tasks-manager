@@ -16,7 +16,7 @@ class AuthRequiredMixin(LoginRequiredMixin):
     def dispatch(self, request, *args, **kwargs):
         if not request.user.is_authenticated:
             messages.error(request, self.auth_message)
-            return redirect(reverse_lazy('login'))
+            return redirect(reverse_lazy('users:login'))
 
         return super().dispatch(request, *args, **kwargs)
 

@@ -8,7 +8,7 @@ urlpatterns = [
     path('<int:pk>/', views.TaskDetailView.as_view(), name='task_show'),
     path('create/', views.TaskCreateView.as_view(), name='task_create'),
     path('<int:pk>/update/', views.TaskEditView.as_view(), name='task_update'),
-    path('<int:pk>/delete/', views.TaskDeleteView.as_view(), name='task_delete'),
+    path('<int:pk>/delete/', views.TaskDeleteView.as_view(), name='task_delete'), # noqa E501
 
 ]
 

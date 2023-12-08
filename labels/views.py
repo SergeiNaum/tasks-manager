@@ -1,11 +1,14 @@
 from django.urls import reverse_lazy
-from django.views.generic import CreateView, UpdateView, DeleteView, DetailView, ListView
+from django.views.generic import (CreateView,
+                                  UpdateView,
+                                  DeleteView,
+                                  ListView)
 from django.utils.translation import gettext_lazy as _
 from django.contrib.messages.views import SuccessMessageMixin
 
 from labels.forms import LabelForm
 from labels.models import Label
-from task_manager.mixins import AuthRequiredMixin, AuthorDeletionMixin, DeleteProtectionMixin
+from task_manager.mixins import AuthRequiredMixin, DeleteProtectionMixin
 
 
 class LabelsListView(AuthRequiredMixin, ListView):
@@ -91,5 +94,3 @@ class LabelDeleteView(AuthRequiredMixin, DeleteProtectionMixin,
         context['button_text'] = _('Yes, delete')
         context['current_page'] = 'labels'
         return context
-
-

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-12-03 09:55+0000\n"
+"POT-Creation-Date: 2023-12-08 08:44+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,30 +19,31 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || "
 "(n%100>=11 && n%100<=14)? 2 : 3);\n"
+
 #: labels/apps.py:8 labels/templates/labels/labels_form.html:6
 msgid "labels"
 msgstr "Метки"
 
-#: labels/forms.py:10 labels/forms.py:12 labels/models.py:7
-#: labels/templates/labels/labels.html:16 statuses/forms.py:10
-#: statuses/forms.py:12 statuses/models.py:9
-#: statuses/templates/statuses/statuses.html:15 tasks/models.py:21
+#: labels/forms.py:9 labels/forms.py:11 labels/models.py:7
+#: labels/templates/labels/labels.html:16 statuses/forms.py:9
+#: statuses/forms.py:11 statuses/models.py:9
+#: statuses/templates/statuses/statuses.html:15 tasks/models.py:26
 #: tasks/templates/tasks/tasks.html:24
 msgid "Name"
 msgstr "Имя"
 
 #: labels/models.py:9 labels/templates/labels/labels.html:17
 #: statuses/models.py:12 statuses/templates/statuses/statuses.html:16
-#: tasks/models.py:13 tasks/templates/tasks/task_detail.html:37
+#: tasks/models.py:14 tasks/templates/tasks/task_detail.html:37
 #: tasks/templates/tasks/tasks.html:28 users/templates/users/all_users.html:16
 msgid "Creation date"
 msgstr "Дата создания"
 
-#: labels/models.py:15
+#: labels/models.py:15 tasks/filters.py:13
 msgid "Label"
 msgstr "Метка"
 
-#: labels/models.py:16 tasks/models.py:28
+#: labels/models.py:16 tasks/models.py:48
 #: tasks/templates/tasks/task_detail.html:43
 msgid "Labels"
 msgstr "Метки"
@@ -73,66 +74,103 @@ msgstr "Изменить"
 msgid "Delete"
 msgstr "Удалить"
 
-#: labels/views.py:23 labels/views.py:24 labels/views.py:43 labels/views.py:44
-#: labels/views.py:64 labels/views.py:65 labels/views.py:89 labels/views.py:90
-#: statuses/views.py:19 statuses/views.py:20 statuses/views.py:38
-#: statuses/views.py:39 statuses/views.py:55 statuses/views.py:56
-#: statuses/views.py:75 statuses/views.py:76 tasks/views.py:27
-#: tasks/views.py:28 tasks/views.py:47 tasks/views.py:48 tasks/views.py:67
-#: tasks/views.py:68 tasks/views.py:96 tasks/views.py:97 tasks/views.py:120
-#: tasks/views.py:121 users/views.py:26 users/views.py:27 users/views.py:37
-#: users/views.py:38 users/views.py:58 users/views.py:59 users/views.py:70
-#: users/views.py:71 users/views.py:86 users/views.py:87 users/views.py:125
-#: users/views.py:126
-#: manager/templates/manager/index.html:6 manager/views.py:15
-#: manager/views.py:16
-
+#: labels/views.py:26 labels/views.py:27 labels/views.py:46 labels/views.py:47
+#: labels/views.py:67 labels/views.py:68 labels/views.py:92 labels/views.py:93
+#: manager/templates/manager/index.html:6 manager/views.py:11
+#: manager/views.py:12 statuses/views.py:19 statuses/views.py:20
+#: statuses/views.py:38 statuses/views.py:39 statuses/views.py:55
+#: statuses/views.py:56 statuses/views.py:75 statuses/views.py:76
+#: tasks/views.py:27 tasks/views.py:28 tasks/views.py:47 tasks/views.py:48
+#: tasks/views.py:67 tasks/views.py:68 tasks/views.py:96 tasks/views.py:97
+#: tasks/views.py:120 tasks/views.py:121 users/views.py:27 users/views.py:28
+#: users/views.py:38 users/views.py:39 users/views.py:59 users/views.py:60
+#: users/views.py:71 users/views.py:72 users/views.py:91 users/views.py:92
+#: users/views.py:135 users/views.py:136
 msgid "Task Manager"
 msgstr "Менеджер задач"
 
-#: labels/views.py:39
+#: labels/views.py:42
 msgid "Label successfully created"
 msgstr "Метка успешно создана"
 
-#: labels/views.py:45 statuses/views.py:40 tasks/views.py:69
+#: labels/views.py:48 statuses/views.py:40 tasks/views.py:69
 msgid "Create"
 msgstr "Создать"
 
-#: labels/views.py:60
+#: labels/views.py:63
 msgid "Label successfully changed"
 msgstr "Метка успешно изменена"
 
-#: labels/views.py:66
+#: labels/views.py:69
 msgid "Change label"
 msgstr "Изменить"
 
-#: labels/views.py:82
+#: labels/views.py:85
 msgid "Label successfully deleted"
 msgstr "Метка успешно удалена"
 
-#: labels/views.py:83
+#: labels/views.py:86
 msgid "It is not possible to delete a label because it is in use"
 msgstr "Невозможно удалить метку, потому что она используется"
 
-#: labels/views.py:91 statuses/views.py:77 tasks/views.py:122 users/1.py:68
-#: users/views.py:127
+#: labels/views.py:94 statuses/views.py:77 tasks/views.py:122 users/1.py:68
+#: users/views.py:137
 msgid "Yes, delete"
-msgstr "Даб удалить"
+msgstr "Да, удалить"
 
-#: statuses/apps.py:8 statuses/models.py:19 tasks/models.py:24
+#: manager/templates/manager/components/header.html:17
+#: users/templates/users/all_users.html:8
+msgid "Users"
+msgstr "Пользователи"
+
+#: manager/templates/manager/components/header.html:21 statuses/models.py:20
+msgid "Statuses"
+msgstr "Статусы"
+
+#: manager/templates/manager/components/header.html:23
+msgid "Tags"
+msgstr "Метки"
+
+#: manager/templates/manager/components/header.html:25 tasks/models.py:56
+msgid "Tasks"
+msgstr "Задачи"
+
+#: manager/templates/manager/components/header.html:31
+msgid "login"
+msgstr "Вход"
+
+#: manager/templates/manager/components/header.html:32
+msgid "sigh up"
+msgstr "Регистрация"
+
+#: manager/templates/manager/components/header.html:36
+msgid "Hello"
+msgstr "Привет"
+
+#: manager/templates/manager/components/header.html:39
+msgid " logout"
+msgstr "Выйти"
+
+#: manager/templates/manager/index.html:10
+msgid "Hello from Hexlet!"
+msgstr "Привет от Хекслета!"
+
+#: manager/templates/manager/index.html:11
+msgid "Practical programming courses"
+msgstr "Практические курсы по программированию"
+
+#: manager/templates/manager/index.html:13
+msgid "Get Started"
+msgstr "Узнать больше"
+
+#: statuses/apps.py:8 statuses/models.py:19 tasks/models.py:38
 #: tasks/templates/tasks/task_detail.html:32
 #: tasks/templates/tasks/tasks.html:25
 msgid "Status"
 msgstr "Статус"
 
-#: statuses/models.py:20
-#: manager/templates/manager/components/header.html:21
-msgid "Statuses"
-msgstr "Статусы"
-
 #: statuses/templates/statuses/statuses.html:7
 #: statuses/templates/statuses/statuses_form.html:6
-#: tasks/templates/tasks/tasks_form.html:6
 msgid "statuses"
 msgstr "статусы"
 
@@ -168,36 +206,35 @@ msgstr "Вы не авторизованы! Пожалуйста, выполни
 msgid "Only own tasks"
 msgstr "Только свои задачи"
 
-#: tasks/models.py:14
+#: tasks/models.py:16
 msgid "Date to update"
 msgstr "Дата изменения"
 
-#: tasks/models.py:22
+#: tasks/models.py:30
 msgid "Description"
 msgstr "Описание"
 
-#: tasks/models.py:23 tasks/templates/tasks/task_detail.html:22
+#: tasks/models.py:34 tasks/templates/tasks/task_detail.html:22
 #: tasks/templates/tasks/tasks.html:26
 msgid "Author"
 msgstr "Автор"
 
-#: tasks/models.py:25 tasks/templates/tasks/task_detail.html:27
+#: tasks/models.py:42 tasks/templates/tasks/task_detail.html:27
 #: tasks/templates/tasks/tasks.html:27
 msgid "Executor"
 msgstr "Исполнитель"
 
-#: tasks/models.py:35
+#: tasks/models.py:55
 msgid "Task"
 msgstr "Задача"
-
-#: tasks/models.py:36
-#: manager/templates/manager/components/header.html:25
-msgid "Tasks"
-msgstr "Задачи"
 
 #: tasks/templates/tasks/tasks.html:9
 msgid "Create task"
 msgstr "Создать задачу"
+
+#: tasks/templates/tasks/tasks_form.html:6
+msgid "tasks"
+msgstr "Задачи"
 
 #: tasks/views.py:29
 msgid "Show"
@@ -219,32 +256,77 @@ msgstr "Задача успешно удалена"
 msgid "The task can be deleted only by its author"
 msgstr "Задачу может удалить только ее автор"
 
-#: users/forms.py:8 users/forms.py:9 users/forms.py:19 users/forms.py:21
-#: users/forms.py:51 users/forms.py:53
+#: users/1.py:21 users/views.py:57
+#, fuzzy
+#| msgid "Task successfully created"
+msgid "User is successfully registered"
+msgstr "Задача успешно создана"
+
+#: users/1.py:23
+#, fuzzy
+#| msgid "Create status"
+msgid "Create user"
+msgstr "Создать статус"
+
+#: users/1.py:24 users/views.py:61
+msgid "Register"
+msgstr "Регистрация"
+
+#: users/1.py:40 users/views.py:85
+#, fuzzy
+#| msgid "Task successfully created"
+msgid "User is successfully updated"
+msgstr "Задача успешно создана"
+
+#: users/1.py:41 users/1.py:62 users/views.py:86 users/views.py:125
+msgid "You have no rights to change another user."
+msgstr "У вас нет прав для изменения другого пользователя."
+
+#: users/1.py:44
+#, fuzzy
+#| msgid "Update"
+msgid "Update user"
+msgstr "Изменить"
+
+#: users/1.py:61 users/views.py:124
+#, fuzzy
+#| msgid "Task successfully deleted"
+msgid "User is successfully deleted"
+msgstr "Задача успешно удалена"
+
+#: users/1.py:64 users/views.py:127
+#, fuzzy
+#| msgid "It is not possible to delete a status because it is in use"
+msgid "Unable to delete a user because he is being used"
+msgstr "Невозможно удалить статус, потому что он используется"
+
+#: users/1.py:67 users/templates/users/delete_user.html:6
+#, fuzzy
+#| msgid "Delete"
+msgid "Delete user"
+msgstr "Удалить"
+
+#: users/forms.py:10 users/forms.py:13 users/forms.py:25 users/forms.py:29
+#: users/forms.py:69 users/forms.py:73
 msgid "username"
 msgstr "Имя пользователя"
 
-#: users/forms.py:10 users/forms.py:11 users/forms.py:23 users/forms.py:25
-#: users/forms.py:55 users/forms.py:57
+#: users/forms.py:14 users/forms.py:17 users/forms.py:31 users/forms.py:35
+#: users/forms.py:75 users/forms.py:79
 msgid "Password"
 msgstr "Пароль"
 
-#: users/forms.py:27 users/forms.py:29 users/forms.py:59 users/forms.py:61
+#: users/forms.py:37 users/forms.py:41 users/forms.py:81 users/forms.py:85
 msgid "Password2"
 msgstr "Пароль2"
 
-#: users/forms.py:36 users/forms.py:41 users/forms.py:69 users/forms.py:75
+#: users/forms.py:52 users/forms.py:58 users/forms.py:97 users/forms.py:104
 msgid "First name"
 msgstr "Имя"
 
-#: users/forms.py:37 users/forms.py:44 users/forms.py:70 users/forms.py:78
+#: users/forms.py:53 users/forms.py:62 users/forms.py:98 users/forms.py:108
 msgid "Last name"
 msgstr "Фамилия"
-
-#: users/templates/users/all_users.html:8
-#: manager/templates/manager/components/header.html:17
-msgid "Users"
-msgstr "Пользователи"
 
 #: users/templates/users/all_users.html:14
 msgid "Username"
@@ -254,43 +336,18 @@ msgstr "Имя пользователя"
 msgid "Full name"
 msgstr "Полное имя"
 
-#: users/templates/users/login.html:7 users/views.py:39
+#: users/templates/users/login.html:7 users/views.py:40
 msgid "Enter"
 msgstr "Вход"
 
-#: users/views.py:36
+#: users/views.py:37
 msgid "You are logged in"
 msgstr "Вы залогинены"
 
-#: users/views.py:46 users/views.py:49
+#: users/views.py:47 users/views.py:50
 msgid "You are logged out"
 msgstr "Вы разлогинены"
 
-#: users/views.py:88
+#: users/views.py:93
 msgid "Edit"
 msgstr "Изменить"
-
-
-#: manager/templates/manager/components/header.html:23
-msgid "Tags"
-msgstr "Метки"
-
-#: manager/templates/manager/components/header.html:31
-msgid "login"
-msgstr "Вход"
-
-#: manager/templates/manager/components/header.html:32
-msgid "sigh up"
-msgstr "Регистрация"
-
-#: manager/templates/manager/index.html:10
-msgid "Hello from Hexlet!"
-msgstr "Привет от Хекслета!"
-
-#: manager/templates/manager/index.html:11
-msgid "Practical programming courses"
-msgstr "Практические курсы по программированию"
-
-#: manager/templates/manager/index.html:13
-msgid "Get Started"
-msgstr "Узнать больше"
