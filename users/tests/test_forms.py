@@ -1,17 +1,32 @@
+from task_manager.helpers import load_data
 from users.forms import RegisterUserForm
-from .testcase import UserTestCase
+from django.test import TestCase, Client
+
+from users.models import User
 
 
-class UserFormTest(UserTestCase):
+class UserFormTest(TestCase):
+
     def test_valid_form(self) -> None:
-        user_data = self.test_user['create']['valid'].copy()
-        form = RegisterUserForm(data=user_data)
+        form_data = {
+            'first_name': 'John',
+            'last_name': 'Doe',
+            'username': 'johndoe',
+            'password1': 'testpassword',
+            'password2': 'testpassword',
+        }
+        form = RegisterUserForm(data=form_data)
 
         self.assertTrue(form.is_valid())
 
     def test_invalid_form(self) -> None:
-        user_data = self.test_user['create']['missing_fields'].copy()
-        form = RegisterUserForm(data=user_data)
+        invalid_form_data = {
+            'first_name': 'Ringo',
+            'last_name': 'Starr',
+            'username': 'R!c h1e',
+            'password1': 'p@$$w0rd',
+            'password2': 'p@$$w0rd',
+        }
+        form = RegisterUserForm(data=invalid_form_data)
 
         self.assertFalse(form.is_valid())
-        
