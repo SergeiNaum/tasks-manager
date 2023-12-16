@@ -7,4 +7,4 @@ class User(AbstractUser):
 
     @property
     def fullname(self):
-        return f'{self.first_name} {self.last_name}'
+        return f"{self.first_name} {self.last_name}"

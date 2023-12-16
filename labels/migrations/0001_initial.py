@@ -4,23 +4,37 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     initial = True
 
-    dependencies = [
-    ]
+    dependencies = []
 
     operations = [
         migrations.CreateModel(
-            name='Label',
+            name="Label",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),  # noqa E501
-                ('name', models.CharField(max_length=150, unique=True, verbose_name='Name')),  # noqa E501
-                ('created_at', models.DateTimeField(auto_now_add=True, verbose_name='Creation date')),  # noqa E501
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),  # noqa E501
+                (
+                    "name",
+                    models.CharField(max_length=150, unique=True, verbose_name="Name"),
+                ),  # noqa E501
+                (
+                    "created_at",
+                    models.DateTimeField(
+                        auto_now_add=True, verbose_name="Creation date"
+                    ),
+                ),  # noqa E501
             ],
             options={
-                'verbose_name': 'Label',
-                'verbose_name_plural': 'Labels',
+                "verbose_name": "Label",
+                "verbose_name_plural": "Labels",
             },
         ),
     ]

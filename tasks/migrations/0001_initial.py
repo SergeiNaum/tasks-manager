@@ -6,30 +6,80 @@ import django.db.models.deletion
 
 
 class Migration(migrations.Migration):
-
     initial = True
 
     dependencies = [
-        ('statuses', '0001_initial'),
+        ("statuses", "0001_initial"),
         migrations.swappable_dependency(settings.AUTH_USER_MODEL),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='Task',
+            name="Task",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),  # noqa E501
-                ('created_at', models.DateTimeField(auto_now_add=True, verbose_name='Creation date')),  # noqa E501
-                ('updated_at', models.DateTimeField(auto_now=True, verbose_name='Date to update')),  # noqa E501
-                ('name', models.CharField(max_length=150, unique=True, verbose_name='Name')),  # noqa E501
-                ('description', models.TextField(blank=True, max_length=10000, unique=True, verbose_name='Description')),  # noqa E501
-                ('author', models.ForeignKey(on_delete=django.db.models.deletion.PROTECT, related_name='author', to=settings.AUTH_USER_MODEL, verbose_name='Author')),  # noqa E501
-                ('executor', models.ForeignKey(on_delete=django.db.models.deletion.PROTECT, related_name='executor', to=settings.AUTH_USER_MODEL, verbose_name='Executor')),  # noqa E501
-                ('status', models.ForeignKey(on_delete=django.db.models.deletion.PROTECT, related_name='statuses', to='statuses.status', verbose_name='Status')),  # noqa E501
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),  # noqa E501
+                (
+                    "created_at",
+                    models.DateTimeField(
+                        auto_now_add=True, verbose_name="Creation date"
+                    ),
+                ),  # noqa E501
+                (
+                    "updated_at",
+                    models.DateTimeField(auto_now=True, verbose_name="Date to update"),
+                ),  # noqa E501
+                (
+                    "name",
+                    models.CharField(max_length=150, unique=True, verbose_name="Name"),
+                ),  # noqa E501
+                (
+                    "description",
+                    models.TextField(
+                        blank=True,
+                        max_length=10000,
+                        unique=True,
+                        verbose_name="Description",
+                    ),
+                ),  # noqa E501
+                (
+                    "author",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.PROTECT,
+                        related_name="author",
+                        to=settings.AUTH_USER_MODEL,
+                        verbose_name="Author",
+                    ),
+                ),  # noqa E501
+                (
+                    "executor",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.PROTECT,
+                        related_name="executor",
+                        to=settings.AUTH_USER_MODEL,
+                        verbose_name="Executor",
+                    ),
+                ),  # noqa E501
+                (
+                    "status",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.PROTECT,
+                        related_name="statuses",
+                        to="statuses.status",
+                        verbose_name="Status",
+                    ),
+                ),  # noqa E501
             ],
             options={
-                'verbose_name': 'Task',
-                'verbose_name_plural': 'Tasks',
+                "verbose_name": "Task",
+                "verbose_name_plural": "Tasks",
             },
         ),
     ]
