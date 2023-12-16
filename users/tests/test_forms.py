@@ -1,8 +1,6 @@
-from task_manager.helpers import load_data
-from users.forms import RegisterUserForm
-from django.test import TestCase, Client
 
-from users.models import User
+from users.forms import RegisterUserForm
+from django.test import TestCase
 
 
 class UserFormTest(TestCase):

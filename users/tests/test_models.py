@@ -1,4 +1,4 @@
-from django.test import TestCase, Client
+from django.test import TestCase
 
 from task_manager.helpers import load_data
 from users.models import User

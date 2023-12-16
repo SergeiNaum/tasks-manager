@@ -1,7 +1,7 @@
 from http import HTTPStatus
 
 from django.test import TestCase, Client
-from django.urls import reverse, reverse_lazy
+from django.urls import reverse_lazy
 
 from users.models import User
 
@@ -98,7 +98,7 @@ class TestUpdateUserView(TestCase):
         )
 
         self.assertEqual(response.status_code, HTTPStatus.OK)
-        self.assertTemplateUsed(response, template_name='users/edit_user_form.html')
+        self.assertTemplateUsed(response, template_name='users/edit_user_form.html')  # noqa E501
 
     def test_update_not_logged_in_view(self) -> None:
         self.client.logout()
