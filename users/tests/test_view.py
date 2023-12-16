@@ -101,6 +101,7 @@ class TestUpdateUserView(TestCase):
         self.assertTemplateUsed(response, template_name='users/edit_user_form.html')
 
     def test_update_not_logged_in_view(self) -> None:
+        self.client.logout()
         response = self.client.get(
             reverse_lazy('users:edit_user', kwargs={'pk': 2})
         )

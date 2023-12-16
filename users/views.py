@@ -110,15 +110,6 @@ class UserEditView(AuthRequiredMixin,
         update_session_auth_hash(self.request, user) # noqa E501
         return HttpResponseRedirect(self.get_success_url()) # noqa E501
 
-    def dispatch(self, request, *args, **kwargs):
-        if not request.user.has_perm('change_user_data'):
-            # Check if the user has permission to change user data
-            if int(kwargs['pk']) != request.user.id:
-                # If the user is attempting to change another user's data
-                messages.error(request, self.permission_message)
-                return HttpResponseRedirect(reverse('users:users_index'))
-        return super().dispatch(request, *args, **kwargs)
-
 
 class UserDeleteView(AuthRequiredMixin,
                      UserPermissionMixin,

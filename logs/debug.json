@@ -1,0 +1,74 @@
+{"asctime": "2023-12-15 17:10:47,212", "name": "django.request", "levelname": "WARNING", "message": "Not Found: /favicon.ico", "status_code": 404, "request": "<WSGIRequest: GET '/favicon.ico'>"}
+Not Found: /favicon.ico
+{"asctime": "2023-12-15 17:19:24,527", "name": "django.request", "levelname": "ERROR", "message": "Internal Server Error: /users/5/update/", "exc_info": "Traceback (most recent call last):\n  File \"/home/sergeynaum/hexlet-projects/python-project-52/.venv/lib/python3.11/site-packages/django/core/handlers/exception.py\", line 55, in inner\n    response = get_response(request)\n               ^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/sergeynaum/hexlet-projects/python-project-52/.venv/lib/python3.11/site-packages/django/core/handlers/base.py\", line 197, in _get_response\n    response = wrapped_callback(request, *callback_args, **callback_kwargs)\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/sergeynaum/hexlet-projects/python-project-52/.venv/lib/python3.11/site-packages/django/views/generic/base.py\", line 104, in view\n    return self.dispatch(request, *args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/sergeynaum/hexlet-projects/python-project-52/task_manager/mixins.py\", line 23, in dispatch\n    return super().dispatch(request, *args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/sergeynaum/hexlet-projects/python-project-52/.venv/lib/python3.11/site-packages/django/contrib/auth/mixins.py\", line 73, in dispatch\n    return super().dispatch(request, *args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/sergeynaum/hexlet-projects/python-project-52/task_manager/mixins.py\", line 45, in dispatch\n    return super().dispatch(request, *args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/sergeynaum/hexlet-projects/python-project-52/.venv/lib/python3.11/site-packages/django/contrib/auth/mixins.py\", line 132, in dispatch\n    user_test_result = self.get_test_func()()\n                       ^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/sergeynaum/hexlet-projects/python-project-52/.venv/lib/python3.11/site-packages/django/contrib/auth/mixins.py\", line 119, in test_func\n    raise NotImplementedError(\nNotImplementedError: UserEditView is missing the implementation of the test_func() method.", "status_code": 500, "request": "<WSGIRequest: GET '/users/5/update/'>"}
+Internal Server Error: /users/5/update/
+Traceback (most recent call last):
+  File "/home/sergeynaum/hexlet-projects/python-project-52/.venv/lib/python3.11/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sergeynaum/hexlet-projects/python-project-52/.venv/lib/python3.11/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sergeynaum/hexlet-projects/python-project-52/.venv/lib/python3.11/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sergeynaum/hexlet-projects/python-project-52/task_manager/mixins.py", line 23, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sergeynaum/hexlet-projects/python-project-52/.venv/lib/python3.11/site-packages/django/contrib/auth/mixins.py", line 73, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sergeynaum/hexlet-projects/python-project-52/task_manager/mixins.py", line 45, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sergeynaum/hexlet-projects/python-project-52/.venv/lib/python3.11/site-packages/django/contrib/auth/mixins.py", line 132, in dispatch
+    user_test_result = self.get_test_func()()
+                       ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sergeynaum/hexlet-projects/python-project-52/.venv/lib/python3.11/site-packages/django/contrib/auth/mixins.py", line 119, in test_func
+    raise NotImplementedError(
+NotImplementedError: UserEditView is missing the implementation of the test_func() method.
+{"asctime": "2023-12-15 17:19:59,598", "name": "django.request", "levelname": "ERROR", "message": "Internal Server Error: /users/5/update/", "exc_info": "Traceback (most recent call last):\n  File \"/home/sergeynaum/hexlet-projects/python-project-52/.venv/lib/python3.11/site-packages/django/core/handlers/exception.py\", line 55, in inner\n    response = get_response(request)\n               ^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/sergeynaum/hexlet-projects/python-project-52/.venv/lib/python3.11/site-packages/django/core/handlers/base.py\", line 197, in _get_response\n    response = wrapped_callback(request, *callback_args, **callback_kwargs)\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/sergeynaum/hexlet-projects/python-project-52/.venv/lib/python3.11/site-packages/django/views/generic/base.py\", line 104, in view\n    return self.dispatch(request, *args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/sergeynaum/hexlet-projects/python-project-52/task_manager/mixins.py\", line 23, in dispatch\n    return super().dispatch(request, *args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/sergeynaum/hexlet-projects/python-project-52/.venv/lib/python3.11/site-packages/django/contrib/auth/mixins.py\", line 73, in dispatch\n    return super().dispatch(request, *args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/sergeynaum/hexlet-projects/python-project-52/task_manager/mixins.py\", line 48, in dispatch\n    return super().dispatch(request, *args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/sergeynaum/hexlet-projects/python-project-52/.venv/lib/python3.11/site-packages/django/contrib/auth/mixins.py\", line 132, in dispatch\n    user_test_result = self.get_test_func()()\n                       ^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/sergeynaum/hexlet-projects/python-project-52/.venv/lib/python3.11/site-packages/django/contrib/auth/mixins.py\", line 119, in test_func\n    raise NotImplementedError(\nNotImplementedError: UserEditView is missing the implementation of the test_func() method.", "status_code": 500, "request": "<WSGIRequest: GET '/users/5/update/'>"}
+Internal Server Error: /users/5/update/
+Traceback (most recent call last):
+  File "/home/sergeynaum/hexlet-projects/python-project-52/.venv/lib/python3.11/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sergeynaum/hexlet-projects/python-project-52/.venv/lib/python3.11/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sergeynaum/hexlet-projects/python-project-52/.venv/lib/python3.11/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sergeynaum/hexlet-projects/python-project-52/task_manager/mixins.py", line 23, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sergeynaum/hexlet-projects/python-project-52/.venv/lib/python3.11/site-packages/django/contrib/auth/mixins.py", line 73, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sergeynaum/hexlet-projects/python-project-52/task_manager/mixins.py", line 48, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sergeynaum/hexlet-projects/python-project-52/.venv/lib/python3.11/site-packages/django/contrib/auth/mixins.py", line 132, in dispatch
+    user_test_result = self.get_test_func()()
+                       ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sergeynaum/hexlet-projects/python-project-52/.venv/lib/python3.11/site-packages/django/contrib/auth/mixins.py", line 119, in test_func
+    raise NotImplementedError(
+NotImplementedError: UserEditView is missing the implementation of the test_func() method.
+{"asctime": "2023-12-15 17:24:29,749", "name": "django.request", "levelname": "WARNING", "message": "Not Found: /favicon.ico", "status_code": 404, "request": "<WSGIRequest: GET '/favicon.ico'>"}
+Not Found: /favicon.ico
+{"asctime": "2023-12-15 17:58:31,143", "name": "django.request", "levelname": "WARNING", "message": "Not Found: /statuses/", "status_code": 404, "request": "<WSGIRequest: GET '/statuses/'>"}
+Not Found: /statuses/
+{"asctime": "2023-12-15 18:03:18,931", "name": "django.request", "levelname": "WARNING", "message": "Not Found: /tasks/", "status_code": 404, "request": "<WSGIRequest: GET '/tasks/'>"}
+Not Found: /tasks/
+{"asctime": "2023-12-16 13:42:55,197", "name": "django.request", "levelname": "WARNING", "message": "Not Found: /statuses/2", "status_code": 404, "request": "<WSGIRequest: GET '/statuses/2'>"}
+Not Found: /statuses/2
+{"asctime": "2023-12-16 13:46:05,614", "name": "django.request", "levelname": "WARNING", "message": "Not Found: /2", "status_code": 404, "request": "<WSGIRequest: GET '/2'>"}
+Not Found: /2
+{"asctime": "2023-12-16 13:46:05,771", "name": "django.request", "levelname": "WARNING", "message": "Not Found: /favicon.ico", "status_code": 404, "request": "<WSGIRequest: GET '/favicon.ico'>"}
+Not Found: /favicon.ico
+{"asctime": "2023-12-16 13:48:04,064", "name": "django.request", "levelname": "WARNING", "message": "Not Found: /3", "status_code": 404, "request": "<WSGIRequest: GET '/3'>"}
+Not Found: /3
+{"asctime": "2023-12-16 13:54:28,094", "name": "django.request", "levelname": "WARNING", "message": "Not Found: /2", "status_code": 404, "request": "<WSGIRequest: GET '/2'>"}
+Not Found: /2
+{"asctime": "2023-12-16 13:54:46,530", "name": "django.request", "levelname": "WARNING", "message": "Not Found: /2", "status_code": 404, "request": "<WSGIRequest: GET '/2'>"}
+Not Found: /2

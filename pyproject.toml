@@ -5,6 +5,7 @@ description = "Task manager on django"
 authors = ["SergeiNaum <sergei.naumencko@yandex.ru>"]
 license = "MIT"
 readme = "README.md"
+packages = [{include = "task_manager"}]
 
 [tool.poetry.dependencies]
 python = "^3.11"
@@ -12,6 +13,11 @@ django = "^4.2.7"
 python-decouple = "^3.8"
 django-bootstrap5 = "^23.3"
 django-filter = "^23.4"
+python-json-logger = "^2.0.7"
+rich = "^13.7.0"
+#psycopg2 = "^2.9.9"
+#gunicorn = "^21.2.0"
+rollbar = "^1.0.0"
 
 
 [tool.poetry.group.dev.dependencies]

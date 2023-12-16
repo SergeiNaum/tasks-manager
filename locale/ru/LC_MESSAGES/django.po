@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-12-08 08:44+0000\n"
+"POT-Creation-Date: 2023-12-15 16:54+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -198,7 +198,7 @@ msgstr "Статус успешно удален"
 msgid "It is not possible to delete a status because it is in use"
 msgstr "Невозможно удалить статус, потому что он используется"
 
-#: task_manager/mixins.py:14
+#: task_manager/mixins.py:16
 msgid "You are not logged in! Please log in."
 msgstr "Вы не авторизованы! Пожалуйста, выполните вход."
 
@@ -268,7 +268,7 @@ msgstr "Задача успешно создана"
 msgid "Create user"
 msgstr "Создать статус"
 
-#: users/1.py:24 users/views.py:61
+#: users/1.py:24 users/templates/users/register.html:5 users/views.py:61
 msgid "Register"
 msgstr "Регистрация"
 
@@ -339,6 +339,35 @@ msgstr "Полное имя"
 #: users/templates/users/login.html:7 users/views.py:40
 msgid "Enter"
 msgstr "Вход"
+
+#: users/templates/users/register.html:19
+msgid "Required field. No more than 150 characters. Only letters, numbers and @/./+/-//_ symbols"
+
+msgstr "Обязательное поле. Не более 150 символов. Только буквы, цифры и символы @/./+/-/_"
+
+#: users/templates/users/register.html:27
+msgid "Your password must contain at least 3 characters."
+msgstr "Ваш пароль должен содержать не менее 3 символов."
+
+#: users/templates/users/register.html:37
+msgid "Please enter your password again to confirm."
+msgstr "Пожалуйста, введите пароль еще раз для подтверждения."
+
+#: users/templates/users/register.html:50
+msgid "Sign up"
+msgstr "Зарегистрироваться"
+
+#: users/templates/users/register_done.html:5
+msgid "Welcome!"
+msgstr ""
+
+#: users/templates/users/register_done.html:7
+msgid "You have successfully registered on the site! To enter the system you need to authorize by this"
+msgstr "Вы успешно зарегистрировались на сайте! Для входа в систему вам необходимо авторизоваться по следующей"
+
+#: users/templates/users/register_done.html:7
+msgid "link"
+msgstr "ссылке"
 
 #: users/views.py:37
 msgid "You are logged in"

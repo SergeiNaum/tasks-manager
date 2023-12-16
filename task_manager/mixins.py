@@ -4,6 +4,8 @@ from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.db.models import ProtectedError
 from django.shortcuts import redirect
 from django.utils.translation import gettext as _
+from django.urls import reverse
+from django.http import HttpResponseRedirect
 
 
 class AuthRequiredMixin(LoginRequiredMixin):
@@ -35,6 +37,15 @@ class UserPermissionMixin(UserPassesTestMixin):
     def handle_no_permission(self):
         messages.error(self.request, self.permission_message)
         return redirect(self.permission_url)
+
+    def dispatch(self, request, *args, **kwargs):
+        if not request.user.has_perm('change_user_data'):
+            # Check if the user has permission to change user data
+            if int(kwargs['pk']) != request.user.id:
+                # If the user is attempting to change another user's data
+                messages.error(request, self.permission_message)
+                return HttpResponseRedirect(reverse('users:users_index'))
+        return super().dispatch(request, *args, **kwargs)
 
 
 class DeleteProtectionMixin:

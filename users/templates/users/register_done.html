@@ -1,11 +1,10 @@
 {% extends 'base.html' %}
-
+{% load i18n %}
 {% block content %}
 <div class="container wrapper flex-grow-1">
-    <h1>Добро пожаловать!</h1>
+    <h1>{% trans 'Welcome!' %}</h1>
 
-    <p>Вы успешно зарегистрировались на сайте! Для входа в систему необходимо авторизоваться по этой <a
-            href="{% url 'users:login' %}">ссылке</a>
+    <p>{% trans 'You have successfully registered on the site! To enter the system you need to authorize by this' %}<a href="{% url 'users:login' %}">{% trans 'link' %}</a>
     </p>
 </div>
 {% endblock %}

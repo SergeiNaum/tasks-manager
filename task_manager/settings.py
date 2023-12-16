@@ -9,6 +9,9 @@ https://docs.djangoproject.com/en/4.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.2/ref/settings/
 """
+import os
+
+import rollbar
 from pathlib import Path
 from decouple import config
 
@@ -60,6 +63,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'rollbar.contrib.django.middleware.RollbarNotifierMiddleware',
 
 ]
 
@@ -127,7 +131,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'ru-ru'
 
 LANGUAGES = [
   ('en', 'English'),
@@ -159,3 +163,90 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 AUTH_USER_MODEL = 'users.User'
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
+
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'formatters': {
+        'console': {
+            'format': '%(name)-12s %(levelname)-8s %(message)s'
+        },
+        'json_formatter': {
+            '()': 'pythonjsonlogger.jsonlogger.JsonFormatter',
+            'format': '%(asctime)s %(name)s %(levelname)s %(message)s',
+        },
+
+        'file': {
+            'format': '%(asctime)s %(name)-12s %(levelname)-8s %(message)s'
+
+        },
+        'verbose': {
+            'format': '%(asctime)s [%(levelname)s] %(name)s - %(message)s'
+        },
+
+    },
+    'handlers': {
+        'console': {
+            'class': 'rich.logging.RichHandler',
+            'formatter': 'console',
+            'level': 'INFO',
+        },
+        'file': {
+            'level': 'WARNING',
+            'class': 'logging.FileHandler',
+            'formatter': 'json_formatter',
+            'filename': 'logs/debug.json'
+        },
+        'mail_admins': {
+            'level': 'WARNING',
+            'class': 'django.utils.log.AdminEmailHandler',
+            'include_html': True,
+        },
+        'rotating_file': {  # Создаем rotating file
+            'class': 'logging.handlers.RotatingFileHandler',
+            'filename': 'logs/debug.json',
+            'maxBytes': 1024 * 1024 * 200,  # 10 Мб
+            'backupCount': 5,  # Количество файлов ротации
+            'encoding': 'utf-8'
+            # 'formatter': 'json_formatter',
+            # 'level': 'DEBUG',
+
+        },
+    },
+    'loggers': {
+        '': {
+            'level': 'INFO',
+            'handlers': ['console'],
+            'propagate': True
+        },
+        'django.request': {
+            'level': 'WARNING',
+            'handlers': ['file', 'mail_admins', 'rotating_file'],
+            'propagate': True
+        },
+        'django.db.backends': {
+            'level': 'WARNING',
+            'handlers': ['file', 'mail_admins', 'rotating_file'],
+            'propagate': True
+        },
+        'django.db.security': {
+            'level': 'WARNING',
+            'handlers': ['file', 'mail_admins', 'rotating_file'],
+            'propagate': True
+        }
+    }
+}
+
+
+# rollbar.init(
+#     'd4e1568311e54c4f9d0b0658356a1b75',
+#     environment='development' if DEBUG else 'production',
+#     root=os.path.abspath(os.path.join(os.path.dirname(__file__), os.pardir)),
+# )
+ROLLBAR = {
+    'access_token': '891568aa386f432ca550af5eb3920f2a',
+    'environment': 'development' if DEBUG else 'production',
+    'code_version': '1.0',
+    'root': BASE_DIR,
+}

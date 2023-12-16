@@ -1,7 +1,8 @@
 {% extends "base.html" %}
+{% load i18n %}
 {% block content %}
 <div class="container wrapper flex-grow-1">
-    <h1 class="my-4">Регистрация</h1>
+    <h1 class="my-4">  {% trans 'Register' %}</h1>
 
     <form method="post">
         {% csrf_token %}
@@ -15,7 +16,7 @@
                 {{ f }}
 
             <div class="form-text">
-                Обязательное поле. Не более 150 символов. Только буквы, цифры и символы @/./+/-/_.
+                {% trans 'Required field. No more than 150 characters. Only letters, numbers and @/./+/-//_ symbols' %}
             </div>
             {% elif f.label == "Пароль" %}
 
@@ -23,7 +24,7 @@
 
              <div class="form-text">
                 <ul>
-                    <li>Ваш пароль должен содержать как минимум 3 символа.</li>
+                    <li>{% trans 'Your password must contain at least 3 characters.' %}</li>
                 </ul>
             </div>
 
@@ -33,7 +34,7 @@
                 {{ f }}
 
             <div class="form-text">
-                Для подтверждения введите, пожалуйста, пароль ещё раз.
+                {% trans 'Please enter your password again to confirm.' %}
             </div>
 
 
@@ -46,7 +47,7 @@
         {% endfor %}
 
         <p>
-            <button class="btn btn-primary btn-lg" type="submit">Зарегистрировать</button>
+            <button class="btn btn-primary btn-lg" type="submit">{% trans 'Sign up' %}</button>
         </p>
     </form>
     </div>
