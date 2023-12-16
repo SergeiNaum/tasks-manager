@@ -14,9 +14,9 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Status',
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(max_length=150, unique=True, verbose_name='Name')),
-                ('created_at', models.DateTimeField(auto_now_add=True, verbose_name='Creation date')),
+                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')), # noqa E501
+                ('name', models.CharField(max_length=150, unique=True, verbose_name='Name')), # noqa E501
+                ('created_at', models.DateTimeField(auto_now_add=True, verbose_name='Creation date')), # noqa E501
             ],
             options={
                 'verbose_name': 'Status',

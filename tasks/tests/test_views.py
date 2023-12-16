@@ -2,8 +2,6 @@ from http import HTTPStatus
 
 from django.urls import reverse_lazy
 from django.test import TestCase, Client
-from django.utils import timezone
-
 from labels.models import Label
 from statuses.models import Status
 from tasks.models import Task
@@ -26,7 +24,7 @@ class TestListTasks(TestCase):
     def test_tasks_view(self) -> None:
         response = self.client.get(reverse_lazy('tasks:tasks'))
 
-        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.status_code, HTTPStatus.OK)
         self.assertTemplateUsed(
             response,
             template_name='tasks/tasks.html'
@@ -46,7 +44,7 @@ class TestListTasks(TestCase):
 
         response = self.client.get(reverse_lazy('tasks:tasks'))
 
-        self.assertEqual(response.status_code, 302)
+        self.assertEqual(response.status_code, HTTPStatus.FOUND)
         self.assertRedirects(response, reverse_lazy('users:login'))
 
 
@@ -64,25 +62,25 @@ class TestCreateTasksView(TestCase):
     def test_create_tasks_view(self) -> None:
         response = self.client.get(reverse_lazy('tasks:task_create'))
 
-        self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, template_name='tasks/tasks_form.html')
+        self.assertEqual(response.status_code, HTTPStatus.OK)
+        self.assertTemplateUsed(response, template_name='tasks/tasks_form.html')  # noqa E501
 
-    def test_create_tasks_not_logged_in_view(self) -> None:
+    def test_create_tasks_not_logged_in_view(self) -> None:  # noqa E501
         self.client.logout()
 
         response = self.client.get(reverse_lazy('tasks:task_create'))
 
-        self.assertEqual(response.status_code, 302)
+        self.assertEqual(response.status_code, HTTPStatus.FOUND)
         self.assertRedirects(response, reverse_lazy('users:login'))
 
 
 class TestTaskEditView(TestCase):
 
     def setUp(self):
-        self.user = User.objects.create_user(username='testuser', password='12345')
+        self.user = User.objects.create_user(username='testuser', password='12345')  # noqa E501
         self.client.login(username='testuser', password='12345')
-        self.status1 = Status.objects.create(name='in_work')
-        self.executor = User.objects.create_user(username='executor', password='executorpass')
+        self.status1 = Status.objects.create(name='in_work')  # noqa E501
+        self.executor = User.objects.create_user(username='executor', password='executorpass')  # noqa E501
         self.task = Task.objects.create(
             name='Test Task',
             description='Test Description',
@@ -92,11 +90,11 @@ class TestTaskEditView(TestCase):
         )
 
     def test_task_edit_view(self):
-        response = self.client.get(reverse_lazy('tasks:task_update', kwargs={'pk': self.task.pk}))
+        response = self.client.get(reverse_lazy('tasks:task_update', kwargs={'pk': self.task.pk}))  # noqa E501
         self.assertEqual(response.status_code, HTTPStatus.OK)
-        self.assertTemplateUsed(response, template_name='tasks/tasks_form.html')
+        self.assertTemplateUsed(response, template_name='tasks/tasks_form.html')  # noqa E501
 
-    def test_update_not_logged_in_view(self) -> None:
+    def test_update_not_logged_in_view(self) -> None:  # noqa E501
         self.client.logout()
 
         response = self.client.get(
@@ -110,10 +108,10 @@ class TestTaskEditView(TestCase):
 class TestDeleteStatusView(TestCase):
 
     def setUp(self):
-        self.user = User.objects.create_user(username='testuser', password='12345')
-        self.client.login(username='testuser', password='12345')
-        self.status1 = Status.objects.create(name='in_work')
-        self.executor = User.objects.create_user(username='executor', password='executorpass')
+        self.user = User.objects.create_user(username='testuser', password='12345')  # noqa E501
+        self.client.login(username='testuser', password='12345')  # noqa E501
+        self.status1 = Status.objects.create(name='in_work')  # noqa E501
+        self.executor = User.objects.create_user(username='executor', password='executorpass')  # noqa E501
         self.task = Task.objects.create(
             name='Test Task',
             description='Test Description',
@@ -124,11 +122,11 @@ class TestDeleteStatusView(TestCase):
 
     def test_delete_task_view(self) -> None:
         response = self.client.get(
-            reverse_lazy('tasks:task_delete', kwargs={'pk': 1})
+            reverse_lazy('tasks:task_delete', kwargs={'pk': 1}) # noqa E501
         )
 
         self.assertEqual(response.status_code, HTTPStatus.OK)
-        self.assertTemplateUsed(response, template_name='tasks/delete.html')
+        self.assertTemplateUsed(response, template_name='tasks/delete.html')  # noqa E501
 
     def test_delete_status_not_logged_in_view(self) -> None:
         self.client.logout()
@@ -144,10 +142,10 @@ class TestDeleteStatusView(TestCase):
 class TestDetailedTask(TestCase):
 
     def setUp(self):
-        self.user = User.objects.create_user(username='testuser', password='12345')
+        self.user = User.objects.create_user(username='testuser', password='12345')  # noqa E501
         self.client.login(username='testuser', password='12345')
         self.status1 = Status.objects.create(name='in_work')
-        self.executor = User.objects.create_user(username='executor', password='executorpass')
+        self.executor = User.objects.create_user(username='executor', password='executorpass')  # noqa E501
         self.label1 = Label.objects.create(pk=2, name='slowly')
         self.labels = Label.objects.filter(pk=2)
         self.task = Task.objects.create(

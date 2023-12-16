@@ -1,7 +1,7 @@
 from http import HTTPStatus
 
 from django.test import TestCase, Client
-from django.urls import reverse, reverse_lazy
+from django.urls import reverse
 
 from labels.forms import LabelForm
 from task_manager.helpers import load_data

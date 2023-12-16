@@ -9,9 +9,6 @@ https://docs.djangoproject.com/en/4.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.2/ref/settings/
 """
-import os
-
-import rollbar
 from pathlib import Path
 from decouple import config
 
@@ -238,12 +235,6 @@ LOGGING = {
     }
 }
 
-
-# rollbar.init(
-#     'd4e1568311e54c4f9d0b0658356a1b75',
-#     environment='development' if DEBUG else 'production',
-#     root=os.path.abspath(os.path.join(os.path.dirname(__file__), os.pardir)),
-# )
 ROLLBAR = {
     'access_token': '891568aa386f432ca550af5eb3920f2a',
     'environment': 'development' if DEBUG else 'production',

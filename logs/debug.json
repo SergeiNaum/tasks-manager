@@ -72,3 +72,27 @@ Not Found: /3
 Not Found: /2
 {"asctime": "2023-12-16 13:54:46,530", "name": "django.request", "levelname": "WARNING", "message": "Not Found: /2", "status_code": 404, "request": "<WSGIRequest: GET '/2'>"}
 Not Found: /2
+{"asctime": "2023-12-16 13:58:01,597", "name": "django.request", "levelname": "WARNING", "message": "Not Found: /users/1/", "status_code": 404, "request": "<WSGIRequest: GET '/users/1/'>"}
+Not Found: /users/1/
+{"asctime": "2023-12-16 14:00:01,710", "name": "django.request", "levelname": "ERROR", "message": "Internal Server Error: /users/", "exc_info": "Traceback (most recent call last):\n  File \"/home/sergeynaum/hexlet-projects/python-project-52/.venv/lib/python3.11/site-packages/django/core/handlers/exception.py\", line 55, in inner\n    response = get_response(request)\n               ^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/sergeynaum/hexlet-projects/python-project-52/.venv/lib/python3.11/site-packages/django/core/handlers/base.py\", line 197, in _get_response\n    response = wrapped_callback(request, *callback_args, **callback_kwargs)\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/sergeynaum/hexlet-projects/python-project-52/.venv/lib/python3.11/site-packages/django/views/generic/base.py\", line 104, in view\n    return self.dispatch(request, *args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/sergeynaum/hexlet-projects/python-project-52/.venv/lib/python3.11/site-packages/django/views/generic/base.py\", line 143, in dispatch\n    return handler(request, *args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/sergeynaum/hexlet-projects/python-project-52/.venv/lib/python3.11/site-packages/django/views/generic/base.py\", line 226, in get\n    context = self.get_context_data(**kwargs)\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/sergeynaum/hexlet-projects/python-project-52/users/views.py\", line 30, in get_context_data\n    a.name = i\n             ^\nNameError: name 'i' is not defined", "status_code": 500, "request": "<WSGIRequest: GET '/users/'>"}
+Internal Server Error: /users/
+Traceback (most recent call last):
+  File "/home/sergeynaum/hexlet-projects/python-project-52/.venv/lib/python3.11/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sergeynaum/hexlet-projects/python-project-52/.venv/lib/python3.11/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sergeynaum/hexlet-projects/python-project-52/.venv/lib/python3.11/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sergeynaum/hexlet-projects/python-project-52/.venv/lib/python3.11/site-packages/django/views/generic/base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sergeynaum/hexlet-projects/python-project-52/.venv/lib/python3.11/site-packages/django/views/generic/base.py", line 226, in get
+    context = self.get_context_data(**kwargs)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sergeynaum/hexlet-projects/python-project-52/users/views.py", line 30, in get_context_data
+    a.name = i
+             ^
+NameError: name 'i' is not defined

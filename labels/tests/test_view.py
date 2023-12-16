@@ -1,3 +1,5 @@
+from http import HTTPStatus
+
 from django.urls import reverse_lazy
 from django.test import TestCase, Client
 
@@ -21,7 +23,7 @@ class TestListLabels(TestCase):
     def test_labels_view(self) -> None:
         response = self.client.get(reverse_lazy('labels:all_labels'))
 
-        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.status_code, HTTPStatus.OK)
         self.assertTemplateUsed(
             response,
             template_name='labels/labels.html'
@@ -51,7 +53,7 @@ class TestListLabels(TestCase):
 
         response = self.client.get(reverse_lazy('labels:all_labels'))
 
-        self.assertEqual(response.status_code, 302)
+        self.assertEqual(response.status_code, HTTPStatus.FOUND)
         self.assertRedirects(response, reverse_lazy('users:login'))
 
 
@@ -69,15 +71,15 @@ class TestCreateLabelView(TestCase):
     def test_create_label_view(self) -> None:
         response = self.client.get(reverse_lazy('labels:label_create'))
 
-        self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, template_name='labels/labels_form.html')
+        self.assertEqual(response.status_code, HTTPStatus.OK)
+        self.assertTemplateUsed(response, template_name='labels/labels_form.html')  # noqa E501
 
     def test_create_label_not_logged_in_view(self) -> None:
         self.client.logout()
 
         response = self.client.get(reverse_lazy('labels:label_create'))
 
-        self.assertEqual(response.status_code, 302)
+        self.assertEqual(response.status_code, HTTPStatus.FOUND)
         self.assertRedirects(response, reverse_lazy('users:login'))
 
 
@@ -101,8 +103,8 @@ class TestUpdateLabelView(TestCase):
             reverse_lazy('labels:label_update', kwargs={'pk': 2})
         )
 
-        self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, template_name='labels/labels_form.html')
+        self.assertEqual(response.status_code, HTTPStatus.OK)
+        self.assertTemplateUsed(response, template_name='labels/labels_form.html')  # noqa E501
 
     def test_update_not_logged_in_view(self) -> None:
         self.client.logout()
@@ -111,7 +113,7 @@ class TestUpdateLabelView(TestCase):
             reverse_lazy('labels:label_update', kwargs={'pk': 2})
         )
 
-        self.assertEqual(response.status_code, 302)
+        self.assertEqual(response.status_code, HTTPStatus.FOUND)
         self.assertRedirects(response, reverse_lazy('users:login'))
 
 
@@ -135,7 +137,7 @@ class TestDeleteLabelView(TestCase):
             reverse_lazy('labels:label_delete', kwargs={'pk': 3})
         )
 
-        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.status_code, HTTPStatus.OK)
         self.assertTemplateUsed(response, template_name='labels/delete.html')
 
     def test_delete_label_not_logged_in_view(self) -> None:
@@ -145,5 +147,5 @@ class TestDeleteLabelView(TestCase):
             reverse_lazy('labels:label_delete', kwargs={'pk': 3})
         )
 
-        self.assertEqual(response.status_code, 302)
+        self.assertEqual(response.status_code, HTTPStatus.FOUND)
         self.assertRedirects(response, reverse_lazy('users:login'))

@@ -1,3 +1,5 @@
+from http import HTTPStatus
+
 from django.urls import reverse_lazy
 from django.test import TestCase, Client
 
@@ -21,7 +23,7 @@ class TestListStatuses(TestCase):
     def test_statuses_view(self) -> None:
         response = self.client.get(reverse_lazy('statuses:all_statuses'))
 
-        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.status_code, HTTPStatus.OK)
         self.assertTemplateUsed(
             response,
             template_name='statuses/statuses.html'
@@ -51,7 +53,7 @@ class TestListStatuses(TestCase):
 
         response = self.client.get(reverse_lazy('statuses:all_statuses'))
 
-        self.assertEqual(response.status_code, 302)
+        self.assertEqual(response.status_code, HTTPStatus.FOUND)
         self.assertRedirects(response, reverse_lazy('users:login'))
 
 
@@ -69,15 +71,15 @@ class TestCreateStatusView(TestCase):
     def test_create_status_view(self) -> None:
         response = self.client.get(reverse_lazy('statuses:status_create'))
 
-        self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, template_name='statuses/statuses_form.html')
+        self.assertEqual(response.status_code, HTTPStatus.OK)
+        self.assertTemplateUsed(response, template_name='statuses/statuses_form.html') # noqa E501
 
     def test_create_status_not_logged_in_view(self) -> None:
         self.client.logout()
 
         response = self.client.get(reverse_lazy('statuses:status_create'))
 
-        self.assertEqual(response.status_code, 302)
+        self.assertEqual(response.status_code, HTTPStatus.FOUND)
         self.assertRedirects(response, reverse_lazy('users:login'))
 
 
@@ -101,8 +103,8 @@ class TestUpdateStatusView(TestCase):
             reverse_lazy('statuses:status_update', kwargs={'pk': 2})
         )
 
-        self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, template_name='statuses/statuses_form.html')
+        self.assertEqual(response.status_code, HTTPStatus.OK) # noqa E501
+        self.assertTemplateUsed(response, template_name='statuses/statuses_form.html') # noqa E501
 
     def test_update_not_logged_in_view(self) -> None:
         self.client.logout()
@@ -111,7 +113,7 @@ class TestUpdateStatusView(TestCase):
             reverse_lazy('statuses:status_update', kwargs={'pk': 2})
         )
 
-        self.assertEqual(response.status_code, 302)
+        self.assertEqual(response.status_code, HTTPStatus.FOUND)
         self.assertRedirects(response, reverse_lazy('users:login'))
 
 
@@ -135,7 +137,7 @@ class TestDeleteStatusView(TestCase):
             reverse_lazy('statuses:status_delete', kwargs={'pk': 3})
         )
 
-        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.status_code, HTTPStatus.OK)
         self.assertTemplateUsed(response, template_name='statuses/delete.html')
 
     def test_delete_status_not_logged_in_view(self) -> None:
@@ -145,5 +147,5 @@ class TestDeleteStatusView(TestCase):
             reverse_lazy('statuses:status_delete', kwargs={'pk': 3})
         )
 
-        self.assertEqual(response.status_code, 302)
+        self.assertEqual(response.status_code, HTTPStatus.FOUND)
         self.assertRedirects(response, reverse_lazy('users:login'))
