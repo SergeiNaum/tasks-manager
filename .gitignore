@@ -16,3 +16,4 @@ cover
 .python-version
 cache
 app_logs
+db.sqlite3
