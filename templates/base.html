@@ -16,7 +16,7 @@
     <link type="text/css" href="{% static 'manager/css/headers.css' %}" rel="stylesheet"/>
     <link type="text/css" href="{% static 'manager/css/style.css' %}" rel="stylesheet"/>
 </head>
-<body>
+<body class="d-flex flex-column min-vh-100">
 {% include "manager/components/header.html" %}
 
 <main class="container wrapper flex-grow-1">
@@ -24,6 +24,7 @@
   {% block content %}
 
   {% endblock %}
+
 </main>
 
 {% include "manager/components/footer.html" %}

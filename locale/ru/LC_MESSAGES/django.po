@@ -256,9 +256,9 @@ msgstr "Задача успешно удалена"
 msgid "The task can be deleted only by its author"
 msgstr "Задачу может удалить только ее автор"
 
-users/1.py:21 users/views.py:57
+#: users/views.py:59
 msgid "User is successfully registered"
-msgstr "Пользователь успешно создан"
+msgstr "Пользователь успешно зарегистрирован"
 
 #: users/1.py:23
 #, fuzzy
