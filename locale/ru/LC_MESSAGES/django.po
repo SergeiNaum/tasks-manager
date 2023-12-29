@@ -256,11 +256,9 @@ msgstr "Задача успешно удалена"
 msgid "The task can be deleted only by its author"
 msgstr "Задачу может удалить только ее автор"
 
-#: users/1.py:21 users/views.py:57
-#, fuzzy
-#| msgid "Task successfully created"
+users/1.py:21 users/views.py:57
 msgid "User is successfully registered"
-msgstr "Задача успешно создана"
+msgstr "Пользователь успешно создан"
 
 #: users/1.py:23
 #, fuzzy
@@ -359,7 +357,7 @@ msgstr "Зарегистрироваться"
 
 #: users/templates/users/register_done.html:5
 msgid "Welcome!"
-msgstr ""
+msgstr "Добро пожаловать"
 
 #: users/templates/users/register_done.html:7
 msgid "You have successfully registered on the site! To enter the system you need to authorize by this"

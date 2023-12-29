@@ -119,7 +119,7 @@ class TaskDeleteView(
     success_url = reverse_lazy("tasks:tasks")
     success_message = _("Task successfully deleted")
     author_message = _("The task can be deleted only by its author")
-    author_url = reverse_lazy("tasks")
+    author_url = reverse_lazy("tasks:tasks")
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)

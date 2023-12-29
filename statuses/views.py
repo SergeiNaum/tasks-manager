@@ -8,7 +8,6 @@ from statuses.models import Status
 from task_manager.mixins import AuthRequiredMixin, DeleteProtectionMixin
 
 
-# Create your views here.
 class StatusesListView(AuthRequiredMixin, ListView):
     template_name = "statuses/statuses.html"
     model = Status
