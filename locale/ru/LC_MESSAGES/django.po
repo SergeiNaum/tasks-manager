@@ -149,7 +149,7 @@ msgstr "Привет"
 
 #: manager/templates/manager/components/header.html:39
 msgid " logout"
-msgstr "Выйти"
+msgstr "Выход"
 
 #: manager/templates/manager/index.html:10
 msgid "Hello from Hexlet!"
