@@ -9,8 +9,7 @@ urlpatterns = [
     path(
         "<int:pk>/delete/", views.UserDeleteView.as_view(), name="delete_user"
     ),  # noqa E501
-    path("login/", views.LoginUser.as_view(), name="login"),
-    path("logout/", views.LogoutUser.as_view(), name="logout"),
+
 ]
 
 app_name = "users"
