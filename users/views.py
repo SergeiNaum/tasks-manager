@@ -86,7 +86,7 @@ class UserEditView(
     def form_valid(self, form):
         user = form.save()
         update_session_auth_hash(self.request, user)  # noqa E501
-        return HttpResponseRedirect(self.get_success_url())  # noqa E501
+        return super().form_valid(form)
 
 
 class UserDeleteView(

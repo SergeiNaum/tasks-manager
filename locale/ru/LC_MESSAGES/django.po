@@ -270,11 +270,9 @@ msgstr "Создать статус"
 msgid "Register"
 msgstr "Регистрация"
 
-#: users/1.py:40 users/views.py:85
-#, fuzzy
-#| msgid "Task successfully created"
+#: users/views.py:63
 msgid "User is successfully updated"
-msgstr "Задача успешно создана"
+msgstr "Пользователь успешно изменен"
 
 #: users/1.py:41 users/1.py:62 users/views.py:86 users/views.py:125
 msgid "You have no rights to change another user."
