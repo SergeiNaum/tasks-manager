@@ -336,7 +336,7 @@ msgstr "Полное имя"
 
 #: users/templates/users/login.html:7 users/views.py:40
 msgid "Enter"
-msgstr "Вход"
+msgstr "Войти"
 
 #: users/templates/users/register.html:19
 msgid "Required field. No more than 150 characters. Only letters, numbers and @/./+/-//_ symbols"
@@ -353,7 +353,7 @@ msgstr "Пожалуйста, введите пароль еще раз для �
 
 #: users/templates/users/register.html:50
 msgid "Sign up"
-msgstr "Зарегистрироваться"
+msgstr "Зарегистрировать"
 
 #: users/templates/users/register_done.html:5
 msgid "Welcome!"
