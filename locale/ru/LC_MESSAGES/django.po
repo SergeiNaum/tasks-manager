@@ -284,17 +284,14 @@ msgstr "У вас нет прав для изменения другого по�
 msgid "Update user"
 msgstr "Изменить"
 
-#: users/1.py:61 users/views.py:124
-#, fuzzy
-#| msgid "Task successfully deleted"
+#: users/views.py:103
 msgid "User is successfully deleted"
-msgstr "Задача успешно удалена"
+msgstr "Пользователь успешно удален"
 
-#: users/1.py:64 users/views.py:127
+# users/views.py:127
 #, fuzzy
-#| msgid "It is not possible to delete a status because it is in use"
 msgid "Unable to delete a user because he is being used"
-msgstr "Невозможно удалить статус, потому что он используется"
+msgstr "Невозможно удалить пользователя, потому что он используется"
 
 #: users/1.py:67 users/templates/users/delete_user.html:6
 #, fuzzy
