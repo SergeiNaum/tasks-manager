@@ -6,6 +6,12 @@ from users.models import User
 
 
 class TaskForm(forms.ModelForm):
+
+    def clean_executor(self):
+        user_id = self.cleaned_data["executor"]
+        user = User.objects.get(id=user_id)
+        return user
+
     executor = forms.ChoiceField(
         choices=[("", "---------")] + [(e.id, e.fullname) for e in User.objects.all()],
         label=_("Executor"))
