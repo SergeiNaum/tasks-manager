@@ -5,7 +5,6 @@ from django.views.generic import TemplateView, CreateView, UpdateView
 from django.contrib.messages.views import SuccessMessageMixin
 from django.views.generic.edit import DeleteView
 from django.contrib.auth import update_session_auth_hash
-from django.http import HttpResponseRedirect
 
 from task_manager.mixins import (
     UserPermissionMixin,

@@ -21,4 +21,3 @@ class LoginUserForm(AuthenticationForm):
     class Meta:
         model = models.User
         fields = ["username", "password"]
-
