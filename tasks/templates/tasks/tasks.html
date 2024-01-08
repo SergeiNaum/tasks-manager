@@ -37,8 +37,8 @@
                         <td>{{ task.id }}</td>
                         <td><a href="{% url 'tasks:task_show' task.id %}">{{ task.name }}</a></td>
                         <td>{{ task.status }}</td>
-                        <td>{{ task.author }}</td>
-                        <td>{{ task.executor }}</td>
+                        <td>{{ task.author.fullname }}</td>
+                        <td>{{ task.executor.fullname }}</td>
                         <td>{{ task.created_at }}</td>
                         <td>
                             <a href="{% url 'tasks:task_update' task.id %}">{% trans 'Update' %}</a>

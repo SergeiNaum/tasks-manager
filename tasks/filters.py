@@ -6,6 +6,16 @@ from labels.models import Label
 from tasks.models import Task
 
 
+class TaskFilterForm(forms.ModelForm):
+    def __init__(self, *args, **kwargs):
+        super(TaskFilterForm, self).__init__(*args, **kwargs)
+        self.fields['executor'].label_from_instance = lambda obj: obj.fullname
+
+    class Meta:
+        model = Task
+        fields = ["status", "executor"]
+
+
 class TaskFilter(FilterSet):
     labels = ModelChoiceFilter(queryset=Label.objects.all(), label=_("Label"))
 
@@ -22,5 +32,6 @@ class TaskFilter(FilterSet):
         return queryset
 
     class Meta:
+        form = TaskFilterForm
         model = Task
         fields = ["status", "executor"]
