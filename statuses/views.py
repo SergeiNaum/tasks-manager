@@ -66,7 +66,7 @@ class StatusDeleteView(
     protected_message = _(
         "It is not possible to delete a status " "because it is in use"
     )
-    protected_url = reverse_lazy("statuses:statuses")
+    protected_url = reverse_lazy("statuses:all_statuses")
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
