@@ -1,0 +1,48 @@
+volumes:
+  data:
+  static:
+  media:
+
+services:
+  django:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: python-project-52
+    env_file:
+      - docker/env/.env
+    ports:
+      - 8000:8000
+    depends_on:
+      - database
+    command: sh -c "poetry run python manage.py collectstatic --no-input &&
+              poetry run python manage.py migrate &&
+              poetry run gunicorn --workers=4 --reload --max-requests=1000 task_manager.wsgi -b 0.0.0.0:8000"
+
+
+  nginx:
+    container_name: nginx
+    working_dir: /app
+    image: nginx:stable-alpine
+    restart: always
+    ports:
+      - "80:80"
+    volumes:
+      - static:/app/static
+      - media:/app/media
+      - ./docker/nginx/prod/:/etc/nginx/conf.d:ro
+    links:
+      - django
+    depends_on:
+      - django
+
+  database:
+    image: postgres
+    container_name: postgres
+    restart: always
+    ports:
+      - 5433:5432
+    env_file:
+      - docker/env/.env
+    volumes:
+      - data:/var/lib/postgresql/data/

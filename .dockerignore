@@ -1,10 +1,9 @@
-# created by virtualenv automatically
 *.egg-info
 __pycache__
 dist/
 *.pyc
 .venv/
-docker/env/.env
+
 TODO
 .coverage
 coverage.xml
