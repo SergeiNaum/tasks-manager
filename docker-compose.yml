@@ -31,6 +31,7 @@ services:
       - static:/app/static
       - media:/app/media
       - ./docker/nginx/prod/:/etc/nginx/conf.d:ro
+      - ./docker/nginx/errors/:/usr/share/nginx/html
     links:
       - django
     depends_on:
