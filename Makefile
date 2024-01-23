@@ -30,4 +30,10 @@ localeEn:
 compileMessages:
 	./manage.py compilemessages --ignore=.venv
 
+tag:
+	git tag -a v0 -m "Version 0.0.0"
+
+tag_push:
+	git push origin <tag name>
+
 .PHONY: install lint start
